@@ -1,0 +1,37 @@
+<ng-container *ngIf="selecPersona!='0'">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <app-encabezado></app-encabezado>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+            <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+          
+                <button class="navbar-toggler bg-primary m-2" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarHome" aria-controls="navbarHome" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon my-toggler "></span>
+                </button>
+                
+                <div class="collapse navbar-collapse p-3" id="navbarHome">
+                  <ul class="nav flex-column bg-primary">
+                    <!--<li class="nav-item"><a class="nav-link js-scroll-trigger text-light" routerLink="/resumen">Resumen</a></li>-->
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" routerLink="/datospersonales">Datos Personales</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" routerLink="/estudios">Estudios</a> </li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" routerLink="/capacitaciones">Capacitaciones</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" routerLink="/habilidades">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" routerLink="/laborales">Actividad Laboral</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger text-light" routerLink="/todo">Todo</a></li>
+                  </ul>
+                </div>
+              </nav>
+        </div>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+            <span>
+                <router-outlet></router-outlet>
+            </span>
+        </div>
+    </div>
+</ng-container>
+<footer class="blockquote-footer text-center p-5">
+  Maky Sistemas y Servicios - 2022 - Corrientes-Arg. (c)
+</footer>

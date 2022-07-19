@@ -1,0 +1,22 @@
+<div class="card">
+    <ng-container *ngIf="miCapacitacionList!=null; else sinCapacitacion">
+        <div class="card-body">
+            <h5 class="card-title">CAPACITACIONES</h5>
+            <p class="card-text">Listado de capacitaciones recibidas</p>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let capacitacion of miCapacitacionList">
+                Capacitación: {{capacitacion.carrera}} -
+                Institución: {{capacitacion.institucion}}
+                Nivel: {{capacitacion.nivel}}
+                Fecha inicio: {{capacitacion.inicio}} - Fecha fin: {{capacitacion.fin}}
+            </li>
+        </ul>
+    </ng-container>
+    <ng-template #sinCapacitacion>
+        <div class="card-body">
+            <h5 class="card-title">CAPACITACIONES</h5>
+            <p class="card-text">Sin capacitaciones</p>
+        </div>
+    </ng-template>
+</div>

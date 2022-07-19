@@ -1,0 +1,23 @@
+<div class="card">
+  <ng-container *ngIf="miEstudioList!=null; else sinEstudio">
+    <div class="card-body">
+      <h5 class="card-title">ESTUDIOS REALIZADOS</h5>
+      <p class="card-text">Listado de estudios realizados</p>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let estudio of miEstudioList">
+        <p><b>Carrera:</b> {{estudio.carrera}} - <b>Institución:</b> {{estudio.institucion}}</p>
+        <p><b>Nivel:</b> {{estudio.nivel}}</p>
+        <p><b>Periodo:</b> desde {{estudio.inicio}} - hasta: {{estudio.fin}} -
+          <b>Finalizado:</b> {{estudio.finalizado? 'Si':'No'}}
+        </p>
+      </li>
+    </ul>
+  </ng-container>
+  <ng-template #sinEstudio>
+    <div class="card-body">
+      <h5 class="card-title">ESTUDIOS REALIZADOS</h5>
+      <p class="card-text">Sin estudios</p>
+    </div>
+  </ng-template>
+</div>

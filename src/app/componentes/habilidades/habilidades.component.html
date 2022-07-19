@@ -1,0 +1,19 @@
+<div class="card">
+    <ng-container *ngIf="miHabilidadList!=null; else sinHabilidades">
+        <div class="card-body">
+            <h5 class="card-title">HABILIDADES</h5>
+            <p class="card-text">Listado de habilidades desarrolladas</p>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let habilidad of miHabilidadList">
+                <p><b>{{habilidad.tipo}}</b> - {{habilidad.descripcion}}</p>
+            </li>
+        </ul>
+    </ng-container>
+    <ng-template #sinHabilidades>
+        <div class="card-body">
+            <h5 class="card-title">HABILIDADES</h5>
+            <p class="card-text">Sin habilidades</p>
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,22 @@
+<div class="card">
+  <ng-container *ngIf="miLaboralList!=null; else sinLaborales">
+    <div class="card-body">
+      <h5 class="card-title">ACTIVIDAD LABORAL</h5>
+      <p class="card-text">Listado de trabajos realizados</p>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let laboral of miLaboralList">
+        <p><b>Empresa:</b> {{laboral.empresa}}</p>
+        <p><b>Periodo:</b> ingreso {{laboral.ingreso}} - egreso: {{laboral.egreso}}
+          <b>Funcion:</b> {{laboral.actividad}}
+        </p>
+      </li>
+    </ul>
+  </ng-container>
+  <ng-template #sinLaborales>
+    <div class="card-body">
+      <h5 class="card-title">ACTIVIDAD LABORAL</h5>
+      <p class="card-text">Sin actividad laboral</p>
+    </div>
+  </ng-template>
+</div>
