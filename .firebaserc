@@ -1,7 +1,8 @@
 {
   "projects": {
-    "default": "profilebox-v1",
-    "profilebox-v1": "profilebox-v1-d9f1e"
+    "default": "profilebox-v1-d9f1e",
+    "profilebox-v1": "profilebox-v1-d9f1e",
+    "frontendprofilebox-v1": "frontendprofilebox-v1"
   },
   "targets": {},
   "etags": {}

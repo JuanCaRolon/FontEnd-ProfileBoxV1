@@ -33,6 +33,7 @@ export class MenuIniComponent implements OnInit {
       //this.estaLogeado=true;
      // this.router.navigate(['/home']);
     }
+    this.autenticacion.edicionOff$.next(true);
     this.datosPorfolio.setPersonaSelec(this.selecPersonaId);
   }
  

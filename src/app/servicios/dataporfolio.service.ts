@@ -6,22 +6,25 @@ import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class DataporfolioService {
+  private url='https://backend-profilebox-v1.herokuapp.com';
+//'https://profileboxv0-rest2.herokuapp.com'
+//'https://pruebaacceso-v2.herokuapp.com'
+//'https://backend-profilebox-v1.herokuapp.com'
+
   private personaActualId$=new BehaviorSubject<string>('0');
   //private datosProfile$=new BehaviorSubject<object>({});
   
   constructor(private http:HttpClient) {}
 
   obtenerDatos(datoRouting:string):Observable<any>{
-    //https://profileboxv0-rest2.herokuapp.com/ https://pruebaacceso-v2.herokuapp.com/
 
-    return this.http.get('http://localhost:8080'+datoRouting); 
-    //return this.http.get('https://profileboxv0-rest2.herokuapp.com'+datoRouting); 
-    //return this.http.get('https://pruebaacceso-v2.herokuapp.com'+datoRouting); 
+    //return this.http.get('http://localhost:8080'+datoRouting); 
+    return this.http.get(this.url+datoRouting); 
   }
 
   enviarDatos(datoRouting:string, datoJson:any):Observable<any>{
     
-    return this.http.put('http://localhost:8080'+datoRouting, datoJson); 
+    return this.http.put(this.url+datoRouting, datoJson); 
     
   }
 
