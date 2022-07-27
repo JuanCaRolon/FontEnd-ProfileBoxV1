@@ -2,16 +2,70 @@
   <ng-container *ngIf="miEstudioList!=null; else sinEstudio">
     <div class="card-body">
       <h5 class="card-title">ESTUDIOS REALIZADOS</h5>
-      <p class="card-text">Listado de estudios realizados</p>
+      <p class="card-text">Listado de estudios realizados
+        <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="agregarRegistro()" *ngIf="!edicionOff">Agregar</button>        
+      </p>
     </div>
-    <ul class="list-group">
+    <!--<ul class="list-group">
       <li class="list-group-item" *ngFor="let estudio of miEstudioList">
         <p><b>Carrera:</b> {{estudio.carrera}} - <b>Institución:</b> {{estudio.institucion}}</p>
         <p><b>Nivel:</b> {{estudio.nivel}}</p>
-        <p><b>Periodo:</b> desde {{estudio.inicio}} - hasta: {{estudio.fin}} -
+        <p><b>Periodo:</b> desde {{estudio.inicio | date:'shortDate'}} - hasta: {{estudio.fin| date:'shortDate'}} -
           <b>Finalizado:</b> {{estudio.finalizado? 'Si':'No'}}
         </p>
       </li>
+    </ul> -->
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let estudio of miEstudioList">
+        <form #frmEstudio="ngForm" name="frmEstudio">
+
+          <div class="row mb-3">
+            <label for="carrera" class="col-1 col-form-label pe-0 mx-0">Carrera:</label>
+            <div class="col">
+              <textarea class="form-control mx-0" [(ngModel)]="estudio.carrera" name="carrera"
+                disabled={{edicionOff}}></textarea>
+            </div>
+            <label for="institucion" class="col-1 col-form-label pe-0 mx-0">Institución:</label>
+            <div class="col">
+              <textarea class="form-control mx-0" [(ngModel)]="estudio.institucion" name="institucion"
+                disabled={{edicionOff}}></textarea>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="nivel" class="col-1 col-form-label pe-0 mx-0">Nivel:</label>
+            <div class="col-3">
+              <input type="text" class="form-control mx-0" [(ngModel)]="estudio.nivel" name="nivel"
+                disabled={{edicionOff}}>
+            </div>
+            <div class="col-9"></div>
+          </div>
+          <p><b>Periodo:</b></p>
+          <div class="row mb-3">
+            <label for="inicio" class="col-1 col-form-label pe-0 mx-0">desde:</label>
+            <div class="col">
+              <input type="date" class="form-control mx-0" [(ngModel)]="estudio.inicio" name="inicio"
+                disabled={{edicionOff}}>
+            </div>
+            <label for="fin" class="col-1 col-form-label pe-0 mx-0">hasta:</label>
+            <div class="col">
+              <input type="date" class="form-control mx-0" [(ngModel)]="estudio.fin" name="fin"
+                disabled={{edicionOff}}>
+            </div>
+            <label for="finalizado" class="col-1 col-form-label pe-0 mx-0">Finalizado:</label>
+            <div class="col">
+              <input type="text" class="form-control mx-0" [(ngModel)]="estudio.finalizado" name="finalizado"
+                disabled={{edicionOff}}>
+            </div>
+            <input type="hidden" class="form-control mx-0" [(ngModel)]="estudio.id" name="id">
+            <input type="hidden" class="form-control mx-0" [(ngModel)]="estudio.profPersona" name="profPersona">
+          </div>
+          <!--<button type="text" class="btn btn-secondary btn-sm mx-2" routerLink="/datospersonales" *ngIf="!edicionOff">Cancelar</button>-->
+          <button type="text" class="btn btn-secondary btn-sm mx-2" (click)="cancelarEdicion()" *ngIf="!edicionOff">Cancelar</button>
+          <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="grabarRegistro(frmEstudio)" *ngIf="!edicionOff">Guardar</button>
+        </form>
+      </li>
+
     </ul>
   </ng-container>
   <ng-template #sinEstudio>

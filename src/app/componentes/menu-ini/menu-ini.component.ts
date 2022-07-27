@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { DataporfolioService } from 'src/app/servicios/dataporfolio.service';
 
 @Component({
@@ -11,9 +12,9 @@ export class MenuIniComponent implements OnInit {
   public estaLogeado:boolean=false;
   public miPersonaList:any;
   public selecPersonaId:string='0';
-  public servicioPersona:string='';
+  //public servicioPersona:string='';
   
-  constructor(private datosPorfolio:DataporfolioService, private router:Router) { }
+  constructor(private datosPorfolio:DataporfolioService, private autenticacion:AutenticacionService, private router:Router) { }
 
   ngOnInit(): void {
     this.datosPorfolio.obtenerDatos('/persona/lista').subscribe(data=>{
@@ -36,7 +37,18 @@ export class MenuIniComponent implements OnInit {
   }
  
   async onLogOut(){
+    this.autenticacion.edicionOff$.next(true);
+    this.router.navigate(['/menu']);
+    this.selecPersonaId='0';
+    this.datosPorfolio.setPersonaSelec(this.selecPersonaId);
+
     //const userLogeado=await this.autServ.logout();
     //this.router.navigate(['/sing-in'])
+  }
+
+  async onEdit(){
+    //this.estaLogeado=!this.estaLogeado;
+    //console.log("Login",this.estaLogeado);
+    this.router.navigate(['/login']);
   }
 }

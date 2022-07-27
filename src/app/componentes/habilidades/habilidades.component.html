@@ -4,9 +4,35 @@
             <h5 class="card-title">HABILIDADES</h5>
             <p class="card-text">Listado de habilidades desarrolladas</p>
         </div>
-        <ul class="list-group">
+        <!--<ul class="list-group">
             <li class="list-group-item" *ngFor="let habilidad of miHabilidadList">
                 <p><b>{{habilidad.tipo}}</b> - {{habilidad.descripcion}}</p>
+            </li>
+        </ul> -->
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let habilidad of miHabilidadList">
+                <form #frmHabilidad="ngForm" name="frmHabilidad">
+
+                    <div class="row mb-3">
+                        <label for="tipo" class="col-2 col-form-label pe-0 mx-0">Tipo:</label>
+                        <div class="col">
+                            <input type="text" class="form-control mx-0" [(ngModel)]="habilidad.tipo" name="tipo"
+                                disabled={{edicionOff}}>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="descripcion" class="col-2 col-form-label pe-0 mx-0">Descripcion:</label>
+                            <textarea class="form-control mx-0" [(ngModel)]="habilidad.descripcion" name="descripcion"
+                                disabled={{edicionOff}}></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" class="form-control mx-0" [(ngModel)]="habilidad.id" name="id">
+                    <input type="hidden" class="form-control mx-0" [(ngModel)]="habilidad.profPersona"
+                        name="profPersona">
+
+                    <button type="text" class="btn btn-secondary btn-sm mx-2" routerLink="/datospersonales"        *ngIf="!edicionOff">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="grabarRegistro(frmHabilidad)"
+                        *ngIf="!edicionOff">Guardar</button>
+                </form>
             </li>
         </ul>
     </ng-container>

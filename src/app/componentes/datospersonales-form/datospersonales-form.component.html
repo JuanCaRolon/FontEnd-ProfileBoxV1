@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">DATOS PERSONALES</h5>
+    </div>
+    <div class="card-text mx-3">
+
+        <form class="form-group" [formGroup]="formPersona" (ngSubmit)="grabarRegistro()">
+            <div class="class-col-4">
+                <label for="apellido">Apellido</label>
+                <input type="text" class="form-control" id="apellido" formControlName="apellido"
+                    placeholder="Ingrese apellido">
+            </div>
+            <div class="class-col-4">
+                <label for="nombres">Nombres</label>
+                <input type="text" class="form-control" id="nombres" formControlName="nombres"
+                    placeholder="Ingrese nombres">
+            </div>
+            <div class="class-col-3">
+                <label for="telefonoTipo">Tel./Cel.</label>
+                <input type="text" class="form-control" id="telefonoTipo" formControlName="telefonoTipo"
+                    placeholder="Tel o Cel">
+            </div>
+            <div class="class-col-9">
+                <label for="telefonoNumero">Numero</label>
+                <input type="text" class="form-control" id="telefonoNumero" formControlName="telefonoNumero"
+                    placeholder="xxx-xxxxxx">
+            </div>
+            <div class="class-col-9">
+                <label for="domicilioCalle">Direccion</label>
+                <input type="text" class="form-control" id="domicilioCalle" formControlName="domicilioCalle"
+                    placeholder="Ingrese calle">
+            </div>
+            <div class="class-col-3">
+                <label for="domicilioNumero">Numero</label>
+                <input type="text" class="form-control" id="domicilioNumero" formControlName="domicilioNumero"
+                    placeholder="Ingrese numero/piso/dpto.">
+            </div>
+            <div class="class-col-6">
+                <label for="domicilioCiudad">Ciudad</label>
+                <input type="text" class="form-control" id="domicilioCiudad" formControlName="domicilioCiudad"
+                    placeholder="Ingrese ciudad">
+            </div>
+            <div class="class-col-6">
+                <label for="domicilioPais">Pais</label>
+                <input type="text" class="form-control" id="domicilioPais" formControlName="domicilioPais"
+                    placeholder="Ingrese pais">
+            </div>
+            <div class="class-col">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" formControlName="email" placeholder="Ingrese mail">
+            </div>
+
+
+            <button type="text" class="btn btn-secondary btn-sm mx-2" (click)="cancelarEdicion()">Cancelar</button>
+            <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="grabarRegistro()">Guardar</button>
+        </form>
+    </div>
+</div>

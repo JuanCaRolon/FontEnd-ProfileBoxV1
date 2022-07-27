@@ -1,0 +1,21 @@
+<form [formGroup]="formLogin" class="m-5" (ngSubmit)="onEnviar($event)">
+    <div class="mb-3">
+        <label for="emailInput" class="form-label">Email:</label>
+        <input type="email" formControlName="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+        <div *ngIf="Email?.errors && Email?.touched">
+            <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+            <p *ngIf="Email?.hasError('required')" class="text-danger">El email es requerido</p>
+            <p *ngIf="Email?.hasError('email')" class="text-danger">El formato de email invalido</p>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="passwordInput">
+        <div *ngIf="Password?.errors && Password?.touched">
+            <p *ngIf="Password?.hasError('required')" class="text-danger">El password es requerido</p>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-secundary" (click)="onClose()">Cancel</button>
+</form>

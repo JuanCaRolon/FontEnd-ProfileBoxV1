@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "profilebox-v1"
-  }
+    "default": "profilebox-v1",
+    "profilebox-v1": "profilebox-v1-d9f1e"
+  },
+  "targets": {},
+  "etags": {}
 }

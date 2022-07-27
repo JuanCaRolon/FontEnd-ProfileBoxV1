@@ -5,7 +5,7 @@
         <p class="card-text"></p>
     </div>
     <div class="card-text mx-3">
-        <p><b>{{miResumen.apellido}}, {{miResumen.nombres}}</b>, nacido el {{miResumen.fechaNacimiento}} en
+        <p><b>{{miResumen.apellido}}, {{miResumen.nombres}}</b>, nacido el {{miResumen.fechaNacimiento| date:'shortDate'}} en
             {{miResumen.lugarNacimiento}},
             {{miResumen.estadoCivil}}</p>
     </div>

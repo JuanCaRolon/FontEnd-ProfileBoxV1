@@ -1,22 +1,30 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataporfolioService {
   private personaActualId$=new BehaviorSubject<string>('0');
-  private datosProfile$=new BehaviorSubject<object>({});
+  //private datosProfile$=new BehaviorSubject<object>({});
   
   constructor(private http:HttpClient) {}
 
-  obtenerDatos(datoRouting:String):Observable<any>{
-    //return this.http.get('http://localhost:8080'+datoRouting); 
+  obtenerDatos(datoRouting:string):Observable<any>{
     //https://profileboxv0-rest2.herokuapp.com/ https://pruebaacceso-v2.herokuapp.com/
-    
-    return this.http.get('https://profileboxv0-rest2.herokuapp.com'+datoRouting); 
+
+    return this.http.get('http://localhost:8080'+datoRouting); 
+    //return this.http.get('https://profileboxv0-rest2.herokuapp.com'+datoRouting); 
+    //return this.http.get('https://pruebaacceso-v2.herokuapp.com'+datoRouting); 
   }
+
+  enviarDatos(datoRouting:string, datoJson:any):Observable<any>{
+    
+    return this.http.put('http://localhost:8080'+datoRouting, datoJson); 
+    
+  }
+
 
   setPersonaSelec(personaSelId:string):void{
     this.personaActualId$.next(personaSelId);
@@ -25,8 +33,24 @@ export class DataporfolioService {
 
   get getPersonaIdSelec$():Observable<string>{
     //this.personaActualId$.next(sessionStorage.getItem('personaId')||'0');
-    
     return this.personaActualId$.asObservable();  //Esta propiedad mantiene los valos del Objeto solicitado
   }
+
   
+
+
+  /*private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      // Se produjo un error del lado del cliente o de la red.
+      console.error('Error:', error.error);
+    } else {
+      // El backend devolvió un código de respuesta fallido.
+      // El cuerpo de la respuesta puede contener pistas sobre lo que salió mal.
+      console.error(
+        'Código devuelto de back-end ${error.status}, el cuerpo era:', error.error);
+    }
+    //Devolver un observable con un mensaje de error de cara al usuario.
+    return throwError(() => new Error('Error; inténtelo de nuevo más tarde.'));
+  }*/
+
 }

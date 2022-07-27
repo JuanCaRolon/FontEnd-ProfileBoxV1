@@ -3,9 +3,15 @@
         <h5 class="card-title">DATOS PERSONALES</h5>
     </div>
     <div class="card-text mx-3">
-        <p><b>Apellido y Nombres:</b> {{miPersona.apellido}} {{miPersona.nombres}}</p>
+        <p><b>Apellido y Nombres:</b>{{miPersona.apellido}} {{miPersona.nombres}}</p>
         <p><b>Telefono:</b> {{miPersona.telefono.tipo}}: {{miPersona.telefono.numero}}</p>
         <p><b>Direccion:</b> {{miPersona.domicilio.calle}} - {{miPersona.domicilio.numero}} - {{miPersona.domicilio.ciudad}} - {{miPersona.domicilio.pais}}</p>
         <p><b>Correo Electrinico:</b> {{miPersona.email}}</p>
+        <div *ngIf="true"> 
+            <!--<a href="#" class="btn btn-primary">Editar</a>-->
+            <button type="botton" class="btn btn-secondary btn-sm float-end mx-2" (click)="cancelarEdicion()" *ngIf="!edicionOff">Cancelar</button>
+            <button type="button" class="btn btn-secondary btn-sm float-end" routerLink="/formdatospersonales" *ngIf="!edicionOff" >Editar</button>
+
+        </div>
     </div>
 </div>

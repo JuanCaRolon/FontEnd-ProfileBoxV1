@@ -12,6 +12,8 @@ import { ResumenComponent } from './componentes/resumen/resumen.component';
 import { TodoComponent } from './componentes/todo/todo.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { MenuIniComponent } from './componentes/menu-ini/menu-ini.component';
+import { DatospersonalesFormComponent } from './componentes/datospersonales-form/datospersonales-form.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 const routes: Routes = [
   //{path: 'app-component', component:AppComponent},
@@ -24,8 +26,10 @@ const routes: Routes = [
   {path:'laborales', component:LaboralComponent},
   {path:'resumen', component:ResumenComponent},
   {path:'todo', component:TodoComponent},
-  {path: 'menu-ini', component:MenuIniComponent},
-  {path: 'home', component:HomeComponent}
+  {path:'menu-ini', component:MenuIniComponent},
+  {path:'home', component:HomeComponent},
+  {path:'formdatospersonales', component:DatospersonalesFormComponent},
+  {path:'login', component:LoginComponent}
   //{path:'', redirectTo: 'datospersonales', pathMatch: 'full'}
 
 ];

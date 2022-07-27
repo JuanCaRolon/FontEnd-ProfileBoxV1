@@ -4,12 +4,55 @@
             <h5 class="card-title">CAPACITACIONES</h5>
             <p class="card-text">Listado de capacitaciones recibidas</p>
         </div>
-        <ul class="list-group">
+        <!--<ul class="list-group">
             <li class="list-group-item" *ngFor="let capacitacion of miCapacitacionList">
                 Capacitación: {{capacitacion.carrera}} -
                 Institución: {{capacitacion.institucion}}
                 Nivel: {{capacitacion.nivel}}
-                Fecha inicio: {{capacitacion.inicio}} - Fecha fin: {{capacitacion.fin}}
+                Fecha inicio: {{capacitacion.inicio | date:'shortDate'}} - Fecha fin: {{capacitacion.fin | date:'shortDate'}}
+            </li>
+        </ul> -->
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let capacitacion of miCapacitacionList">
+                <form #frmCapacitacion="ngForm" name="frmCapacitacion">
+                    <div class="row mb-3">
+                        <label for="carrera" class="col-1 col-form-label pe-0 mx-0">Capacitacion:</label>
+                        <div class="col">
+                            <textarea class="form-control mx-0" [(ngModel)]="capacitacion.carrera" name="carrera"
+                                disabled={{edicionOff}}></textarea>
+                        </div>
+                        <label for="institucion" class="col-1 col-form-label pe-0 mx-0">Institución:</label>
+                        <div class="col">
+                            <textarea class="form-control mx-0" [(ngModel)]="capacitacion.institucion"
+                                name="institucion" disabled={{edicionOff}}></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="nivel" class="col-1 col-form-label pe-0 mx-0">Nivel:</label>
+                        <div class="col-3">
+                            <input type="text" class="form-control mx-0" [(ngModel)]="capacitacion.nivel" name="nivel"
+                                disabled={{edicionOff}}>
+                        </div>
+                        <div class="col-9"></div>
+                    </div>
+                    <p><b>Periodo:</b></p>
+                    <div class="row mb-3">
+                        <label for="inicio" class="col-1 col-form-label pe-0 mx-0">desde:</label>
+                        <div class="col">
+                            <input type="date" class="form-control mx-0" [(ngModel)]="capacitacion.inicio" name="inicio"
+                                disabled={{edicionOff}}>
+                        </div>
+                        <label for="fin" class="col-1 col-form-label pe-0 mx-0">hasta:</label>
+                        <div class="col">
+                            <input type="date" class="form-control mx-0" [(ngModel)]="capacitacion.fin" name="fin"
+                                disabled={{edicionOff}}>
+                        </div>
+                        <input type="hidden" class="form-control mx-0" [(ngModel)]="capacitacion.id" name="id">
+                        <input type="hidden" class="form-control mx-0" [(ngModel)]="capacitacion.profPersona" name="profPersona">
+                      </div>
+                      <button type="text" class="btn btn-secondary btn-sm mx-2" (click)="cancelarEdicion()" *ngIf="!edicionOff">Cancelar</button>
+                      <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="grabarRegistro(frmCapacitacion)" *ngIf="!edicionOff">Guardar</button>
+                </form>
             </li>
         </ul>
     </ng-container>

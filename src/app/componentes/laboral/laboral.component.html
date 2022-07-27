@@ -4,13 +4,53 @@
       <h5 class="card-title">ACTIVIDAD LABORAL</h5>
       <p class="card-text">Listado de trabajos realizados</p>
     </div>
-    <ul class="list-group">
+    <!--<ul class="list-group">
       <li class="list-group-item" *ngFor="let laboral of miLaboralList">
         <p><b>Empresa:</b> {{laboral.empresa}}</p>
-        <p><b>Periodo:</b> ingreso {{laboral.ingreso}} - egreso: {{laboral.egreso}}
+        <p><b>Periodo:</b> ingreso {{laboral.ingreso| date:'shortDate'}} - egreso: {{laboral.egreso| date:'shortDate'}}
           <b>Funcion:</b> {{laboral.actividad}}
         </p>
       </li>
+    </ul> -->
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let laboral of miLaboralList">
+        <form #frmLaboral="ngForm" name="frmLaboral">
+
+          <div class="row mb-3">
+            <label for="empresa" class="col-2 col-form-label pe-0 mx-0">Empresa:</label>
+            <div class="col">
+              <textarea class="form-control mx-0" [(ngModel)]="laboral.empresa" name="empresa"
+                disabled={{edicionOff}}></textarea>
+            </div>
+          <p><b>Periodo:</b></p>
+          <div class="row mb-3">
+            <label for="ingreso" class="col-2 col-form-label pe-0 mx-0">ingreso:</label>
+            <div class="col">
+              <input type="date" class="form-control mx-0" [(ngModel)]="laboral.ingreso" name="ingreso"
+                disabled={{edicionOff}}>
+            </div>
+            <label for="egreso" class="col-2 col-form-label pe-0 mx-0">egreso:</label>
+            <div class="col">
+              <input type="date" class="form-control mx-0" [(ngModel)]="laboral.egreso" name="egreso"
+                disabled={{edicionOff}}>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="actividad" class="col-2 col-form-label pe-0 mx-0">Actividad:</label>
+            <div class="col">
+              <textarea class="form-control mx-0" [(ngModel)]="laboral.actividad" name="actividad"
+                disabled={{edicionOff}}></textarea>
+            </div>
+          </div>
+
+            <input type="hidden" class="form-control mx-0" [(ngModel)]="laboral.id" name="id">
+            <input type="hidden" class="form-control mx-0" [(ngModel)]="laboral.profPersona" name="profPersona">
+          </div>
+          <button type="text" class="btn btn-secondary btn-sm mx-2" routerLink="/datospersonales" *ngIf="!edicionOff">Cancelar</button>
+          <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="grabarRegistro(frmLaboral)" *ngIf="!edicionOff">Guardar</button>
+        </form>
+      </li>
+
     </ul>
   </ng-container>
   <ng-template #sinLaborales>

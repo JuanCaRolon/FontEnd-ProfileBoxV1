@@ -16,6 +16,8 @@ import { ResumenComponent } from './componentes/resumen/resumen.component';
 import { MenuIniComponent } from './componentes/menu-ini/menu-ini.component';
 import { BannerComponent } from './componentes/banner/banner.component';
 import { TodoComponent } from './componentes/todo/todo.component';
+import { DatospersonalesFormComponent } from './componentes/datospersonales-form/datospersonales-form.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 
 @NgModule({
@@ -31,14 +33,16 @@ import { TodoComponent } from './componentes/todo/todo.component';
     ResumenComponent,
     MenuIniComponent,
     BannerComponent,
-    TodoComponent
+    TodoComponent,
+    DatospersonalesFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
