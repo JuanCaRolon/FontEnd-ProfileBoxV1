@@ -34,8 +34,8 @@ export class DatospersonalesFormComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.datosPorfolio.getPersonaIdSelec$.subscribe((data: string) => {
       this.selecPersonaId = data;
-      this.datosPorfolio.obtenerDatos('/persona/busca/' + this.selecPersonaId).subscribe(data => {
-        this.miPersona = data;
+      this.datosPorfolio.obtenerDatos('/profile/busca/' + this.selecPersonaId).subscribe(data => {
+        this.miPersona = data.persona;
         //this.formPersona.setValue({
         this.formPersona.patchValue({
           apellido: this.miPersona.apellido,

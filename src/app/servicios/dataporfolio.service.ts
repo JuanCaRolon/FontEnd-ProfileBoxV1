@@ -5,41 +5,41 @@ import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataporfolioService {
-  private url='https://backend-profilebox-v1.herokuapp.com';
-//'https://profileboxv0-rest2.herokuapp.com'
-//'https://pruebaacceso-v2.herokuapp.com'
-//'https://backend-profilebox-v1.herokuapp.com'
+  //private url='https://backend-profilebox-v1.herokuapp.com';
+  //'https://profileboxv0-rest2.herokuapp.com'
+  //'https://pruebaacceso-v2.herokuapp.com'
+  //'https://backend-profilebox-v1.herokuapp.com'
+  private url = 'http://localhost:8080';
 
-  private personaActualId$=new BehaviorSubject<string>('0');
+  private personaActualId$ = new BehaviorSubject<string>('0');
   //private datosProfile$=new BehaviorSubject<object>({});
-  
-  constructor(private http:HttpClient) {}
 
-  obtenerDatos(datoRouting:string):Observable<any>{
+  constructor(private http:HttpClient) { }
 
-    //return this.http.get('http://localhost:8080'+datoRouting); 
-    return this.http.get(this.url+datoRouting); 
+  obtenerDatos(datoRouting:string): Observable<any> {
+
+    return this.http.get(this.url + datoRouting);
   }
 
-  enviarDatos(datoRouting:string, datoJson:any):Observable<any>{
-    
-    return this.http.put(this.url+datoRouting, datoJson); 
-    
+  enviarDatos(datoRouting:string, datoJson:any): Observable<any> {
+
+    return this.http.put(this.url + datoRouting, datoJson);
+
   }
 
-
-  setPersonaSelec(personaSelId:string):void{
+  setPersonaSelec(personaSelId:string): void {
     this.personaActualId$.next(personaSelId);
     sessionStorage.setItem('personaId', JSON.stringify(personaSelId));
   }
 
-  get getPersonaIdSelec$():Observable<string>{
+  get getPersonaIdSelec$(): Observable<string> {
     //this.personaActualId$.next(sessionStorage.getItem('personaId')||'0');
     return this.personaActualId$.asObservable();  //Esta propiedad mantiene los valos del Objeto solicitado
   }
 
-  
+
 
 
   /*private handleError(error: HttpErrorResponse) {

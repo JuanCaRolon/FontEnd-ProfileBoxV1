@@ -14,8 +14,8 @@
           <select class="form-select" id="seleccionPersona" name="seleccionPersona" [(ngModel)]="selecPersonaId"
             (change)="onEnviar()">
             <option disabled selected value="0">Seleccionar persona...</option>
-            <option *ngFor="let persona of miPersonaList" [value]="persona.id">
-              {{persona.apellido}}, {{persona.nombres}}
+            <option *ngFor="let prof of miPersonaList" [value]="prof.id">
+              {{prof.persona.apellido}}, {{prof.persona.nombres}}
             </option>
           </select>
         </div>

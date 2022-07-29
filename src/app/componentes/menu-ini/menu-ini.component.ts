@@ -17,7 +17,7 @@ export class MenuIniComponent implements OnInit {
   constructor(private datosPorfolio:DataporfolioService, private autenticacion:AutenticacionService, private router:Router) { }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos('/persona/lista').subscribe(data=>{
+    this.datosPorfolio.obtenerDatos('/profile/lista').subscribe(data=>{
       this.miPersonaList=data;
       console.log("Lista: ", this.miPersonaList);
     });

@@ -15,11 +15,11 @@ export class ResumenComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.datosPorfolio.getPersonaIdSelec$.subscribe((data:string)=>{
       this.selecPersonaId=data;
-      this.datosPorfolio.obtenerDatos('/persona/busca/'+this.selecPersonaId).subscribe(data=>{
-        this.miResumen=data;
+      this.datosPorfolio.obtenerDatos('/profile/busca/'+this.selecPersonaId).subscribe(data=>{
+        this.miResumen=data.persona;
       });
     });
-    console.log('personaId:', this.selecPersonaId );
+    console.log('personaId:', this.miResumen );
   }
 
 }

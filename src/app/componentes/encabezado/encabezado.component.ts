@@ -15,10 +15,10 @@ export class EncabezadoComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.datosPorfolio.getPersonaIdSelec$.subscribe((data:string)=>{
       this.selecPersonaId=data;
-      this.datosPorfolio.obtenerDatos('/persona/busca/'+this.selecPersonaId).subscribe(data=>{
-        this.miPorfolio=data;
+      this.datosPorfolio.obtenerDatos('/profile/busca/'+this.selecPersonaId).subscribe(data=>{
+        this.miPorfolio=data.persona;
       });
     });
-    console.log('personaId:', this.selecPersonaId );
+    console.log('personaId:', this.miPorfolio );
   }
 }
