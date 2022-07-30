@@ -2,7 +2,9 @@
     <ng-container *ngIf="miHabilidadList!=null; else sinHabilidades">
         <div class="card-body">
             <h5 class="card-title">HABILIDADES</h5>
-            <p class="card-text">Listado de habilidades desarrolladas</p>
+            <p class="card-text">Listado de habilidades desarrolladas
+                <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="nuevoRegistro()" *ngIf="!edicionOff">Agregar</button>
+            </p>
         </div>
         <!--<ul class="list-group">
             <li class="list-group-item" *ngFor="let habilidad of miHabilidadList">
@@ -29,9 +31,8 @@
                     <input type="hidden" class="form-control mx-0" [(ngModel)]="habilidad.profPersona"
                         name="profPersona">
 
-                    <button type="text" class="btn btn-secondary btn-sm mx-2" routerLink="/datospersonales"        *ngIf="!edicionOff">Cancelar</button>
-                    <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="grabarRegistro(frmHabilidad)"
-                        *ngIf="!edicionOff">Guardar</button>
+                        <button type="text" class="btn btn-secondary btn-sm mx-2" (click)="cancelarEdicion()" *ngIf="!edicionOff">Cancelar</button>
+                        <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="grabarRegistro(frmHabilidad)" *ngIf="!edicionOff">Guardar</button>
                 </form>
             </li>
         </ul>

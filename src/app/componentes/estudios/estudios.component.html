@@ -3,7 +3,7 @@
     <div class="card-body">
       <h5 class="card-title">ESTUDIOS REALIZADOS</h5>
       <p class="card-text">Listado de estudios realizados
-        <!--<button type="submit" class="btn btn-primary btn-sm mx-2" (click)="agregarRegistro()" *ngIf="!edicionOff">Agregar</button>-->
+        <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="nuevoRegistro()" *ngIf="!edicionOff">Agregar</button>
       </p>
     </div>
     <!--<ul class="list-group">
@@ -60,7 +60,7 @@
             <input type="hidden" class="form-control mx-0" [(ngModel)]="estudio.id" name="id">
             <input type="hidden" class="form-control mx-0" [(ngModel)]="estudio.profPersona" name="profPersona">
           </div>
-          <!--<button type="text" class="btn btn-secondary btn-sm mx-2" routerLink="/datospersonales" *ngIf="!edicionOff">Cancelar</button>-->
+        <!--<button type="text" class="btn btn-secondary btn-sm mx-2" routerLink="/datospersonales" *ngIf="!edicionOff">Cancelar</button>--> 
           <button type="text" class="btn btn-secondary btn-sm mx-2" (click)="cancelarEdicion()" *ngIf="!edicionOff">Cancelar</button>
           <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="grabarRegistro(frmEstudio)" *ngIf="!edicionOff">Guardar</button>
         </form>

@@ -13,6 +13,7 @@ export class LaboralComponent implements OnInit {
   private selecPersonaId!: string;
   public miLaboralList: any;
   public edicionOff:boolean=false;
+  private addOff:boolean=true;
 
   constructor(private datosPorfolio: DataporfolioService, private router:Router, private autenticacion:AutenticacionService) { }
 
@@ -32,17 +33,47 @@ export class LaboralComponent implements OnInit {
   }
 
   grabarRegistro(frmLaboral:NgForm){
+    if(this.addOff){
+      this.modificarRegistro(frmLaboral);
+    } else {
+      this.agregarRegistro(frmLaboral);
+    }
+  }
 
+  modificarRegistro(frmLaboral:NgForm){
     frmLaboral.value.profPersona={'id':frmLaboral.value.profPersona};
-
     console.log("Grabar:", frmLaboral.value);
-    
     this.datosPorfolio.enviarDatos('/laboral/modificacion', frmLaboral.value).subscribe(data => {
       console.log(data);
     });
+  }
 
-    //this.router.navigate(['/datospersonales']);
-    
+  agregarRegistro(frmLaboral:NgForm){
+    frmLaboral.value.profPersona={'id':+this.selecPersonaId};
+    console.log("id", this.selecPersonaId);
+    console.log("Alta:", frmLaboral.value);
+    this.datosPorfolio.agregarDatos('/laboral/alta', frmLaboral.value).subscribe(data => {
+      console.log("Agregado",data);
+    });
+    this.addOff=true;
+    this.edicionOff=true;
+    this.autenticacion.edicionOff$.next(this.edicionOff);
+    this.ngOnInit();
+    this.router.navigate(['/labotal'], {skipLocationChange:true});
+  }
+
+  nuevoRegistro(){
+    this.addOff=false;
+    this.miLaboralList=[
+      {
+        "id": 0,
+        "profPersona": 0,
+        "empresa": "",
+        "ingreso": "",
+        "egreso": "",
+        "actividad": ""
+    },
+    ]
   }
 
   cancelarEdicion(){

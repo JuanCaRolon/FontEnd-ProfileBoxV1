@@ -2,7 +2,9 @@
     <ng-container *ngIf="miCapacitacionList!=null; else sinCapacitacion">
         <div class="card-body">
             <h5 class="card-title">CAPACITACIONES</h5>
-            <p class="card-text">Listado de capacitaciones recibidas</p>
+            <p class="card-text">Listado de capacitaciones recibidas
+                <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="nuevoRegistro()" *ngIf="!edicionOff">Agregar</button>
+            </p>
         </div>
         <!--<ul class="list-group">
             <li class="list-group-item" *ngFor="let capacitacion of miCapacitacionList">

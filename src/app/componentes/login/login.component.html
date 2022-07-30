@@ -16,6 +16,6 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!formLogin.valid">Submit</button>
     <button type="submit" class="btn btn-secundary" (click)="onClose()">Cancel</button>
 </form>

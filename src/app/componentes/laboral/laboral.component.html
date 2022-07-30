@@ -2,7 +2,9 @@
   <ng-container *ngIf="miLaboralList!=null; else sinLaborales">
     <div class="card-body">
       <h5 class="card-title">ACTIVIDAD LABORAL</h5>
-      <p class="card-text">Listado de trabajos realizados</p>
+      <p class="card-text">Listado de trabajos realizados
+        <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="nuevoRegistro()" *ngIf="!edicionOff">Agregar</button>
+      </p>
     </div>
     <!--<ul class="list-group">
       <li class="list-group-item" *ngFor="let laboral of miLaboralList">
@@ -46,7 +48,7 @@
             <input type="hidden" class="form-control mx-0" [(ngModel)]="laboral.id" name="id">
             <input type="hidden" class="form-control mx-0" [(ngModel)]="laboral.profPersona" name="profPersona">
           </div>
-          <button type="text" class="btn btn-secondary btn-sm mx-2" routerLink="/datospersonales" *ngIf="!edicionOff">Cancelar</button>
+          <button type="text" class="btn btn-secondary btn-sm mx-2" (click)="cancelarEdicion()" *ngIf="!edicionOff">Cancelar</button>
           <button type="submit" class="btn btn-primary btn-sm mx-2" (click)="grabarRegistro(frmLaboral)" *ngIf="!edicionOff">Guardar</button>
         </form>
       </li>
