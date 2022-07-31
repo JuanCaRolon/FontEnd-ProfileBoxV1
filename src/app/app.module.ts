@@ -18,6 +18,7 @@ import { BannerComponent } from './componentes/banner/banner.component';
 import { TodoComponent } from './componentes/todo/todo.component';
 import { DatospersonalesFormComponent } from './componentes/datospersonales-form/datospersonales-form.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { AsercadeComponent } from './componentes/asercade/asercade.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LoginComponent } from './componentes/login/login.component';
     BannerComponent,
     TodoComponent,
     DatospersonalesFormComponent,
-    LoginComponent
+    LoginComponent,
+    AsercadeComponent
   ],
   imports: [
     BrowserModule,

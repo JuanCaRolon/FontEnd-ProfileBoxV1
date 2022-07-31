@@ -14,6 +14,8 @@ import { HomeComponent } from './componentes/home/home.component';
 import { MenuIniComponent } from './componentes/menu-ini/menu-ini.component';
 import { DatospersonalesFormComponent } from './componentes/datospersonales-form/datospersonales-form.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { AsercadeComponent } from './componentes/asercade/asercade.component';
+import { BannerComponent } from './componentes/banner/banner.component';
 
 const routes: Routes = [
   //{path: 'app-component', component:AppComponent},
@@ -29,9 +31,9 @@ const routes: Routes = [
   {path:'menu-ini', component:MenuIniComponent},
   {path:'home', component:HomeComponent},
   {path:'formdatospersonales', component:DatospersonalesFormComponent},
-  {path:'login', component:LoginComponent}
-  //{path:'', redirectTo: 'datospersonales', pathMatch: 'full'}
-
+  {path:'login', component:LoginComponent},
+  {path:'banner', component:BannerComponent}, 
+  {path:'asercade', component:AsercadeComponent},
 ];
 
 @NgModule({
