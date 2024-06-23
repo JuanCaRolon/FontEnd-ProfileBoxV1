@@ -7,7 +7,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 
 export class DataporfolioService {
-  private url='https://backend-profilebox-v1.herokuapp.com';
+  private url='https://apirestv2-production.up.railway.app';
+  //private url='https://backend-profilebox-v1.herokuapp.com';
   //private url='http://localhost:8080';
   //'https://profileboxv0-rest2.herokuapp.com'
   //'https://pruebaacceso-v2.herokuapp.com'
